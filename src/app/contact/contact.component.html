@@ -1,1 +1,7 @@
 <p>Contact Page</p>
+
+<app-address [addressDetails]="addressDetails" (sendAddressData)="addressEventData($event)"></app-address>
+
+
+<p>User Data</p>
+{{userData | json}}
