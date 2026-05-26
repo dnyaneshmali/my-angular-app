@@ -5,6 +5,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ToDoListComponent } from './todo-list/todo-list.component';
 import { ToDoResolver } from './services/todo-list.resolver';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
   {
@@ -17,7 +18,8 @@ export const routes: Routes = [
   },
   {
     path: 'template-form',
-    component: TemplateFormComponent
+    component: TemplateFormComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'reactive-form',
