@@ -1,0 +1,25 @@
+<p>Template Contact Form</p>
+
+<div>
+    <form #userForm="ngForm" (ngSubmit)="submitUserForm(userForm)">
+        <p><input type="text" [(ngModel)]="firstName" #firstNameVar="ngModel" name="firstName" required minlength="3"><br />
+            @if (firstNameVar.touched && firstNameVar.invalid && firstNameVar.hasError('required')) {
+            <span class="text-danger">First Name is required</span>
+            }
+            @if (firstNameVar.touched && firstNameVar.invalid && firstNameVar.hasError('minlength')) {
+            <span class="text-danger">Enter Min 3 Charater</span>
+            }
+        </p>
+        <p><input type="text" [(ngModel)]="lastName" #lastNameVar="ngModel" name="lastName" required minlength="3"><br />
+            @if (lastNameVar.touched && lastNameVar.invalid && lastNameVar.hasError('required')) {
+            <span class="text-danger">Last Name is required</span>
+            }
+
+            @if (lastNameVar.touched && lastNameVar.invalid && lastNameVar.hasError('minlength')) {
+            <span class="text-danger">Enter Min 3 Charater</span>
+            }
+
+        </p>
+        <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+    </form>
+</div>

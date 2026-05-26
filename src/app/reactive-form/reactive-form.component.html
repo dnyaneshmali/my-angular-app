@@ -1,0 +1,26 @@
+<p>Reactive Form</p>
+<div>
+    <form [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
+        <p><input type="text" formControlName="firstName" name="firstName"><br />
+            @if (userForm.get('firstName')?.touched && userForm.get('firstName')?.invalid) {
+                @if (userForm.get('firstName')?.errors?.['required']) {
+                <span class="text-danger">First Name is Required</span>
+                }
+                @if (userForm.get('firstName')?.errors?.['minlength']) {
+                <span class="text-danger">Enter min 3 Charaters</span>
+                }
+            }
+        </p>
+        <p><input type="text" formControlName="lastName" name="lastName"><br />
+            @if (userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid) {
+                @if (userForm.get('lastName')?.errors?.['required']) {
+                <span class="text-danger">Last Name is Required</span>
+                }
+                @if (userForm.get('lastName')?.errors?.['minlength']) {
+                <span class="text-danger">Enter min 3 Charaters</span>
+                }
+            }
+        </p>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
+    </form>
+</div>
