@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddressComponent } from '../address/address.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +15,7 @@ export class ContactComponent implements OnInit {
   userData: any;
   userName!: string;
   productData: any;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.addressDetails = {

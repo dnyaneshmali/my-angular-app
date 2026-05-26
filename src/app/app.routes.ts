@@ -12,7 +12,7 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'contact',
+    path: 'contact/:id',
     component: ContactComponent,
   },
   {
@@ -21,7 +21,8 @@ export const routes: Routes = [
   },
   {
     path: 'reactive-form',
-    component: ReactiveFormComponent
+    component: ReactiveFormComponent,
+    data: [{formId: 'rc-1'}]
   },
   {
     path: 'todo-list',

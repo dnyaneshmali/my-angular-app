@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reactive-form',
@@ -17,12 +18,16 @@ export class ReactiveFormComponent implements OnInit {
   userForm!: FormGroup;
   firstName!: FormControl;
   lastName!: FormControl;
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.data.subscribe((rData) => {
+      console.log('res data', rData[0]);
+    });
+
     this.userForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      lastName: new FormControl('', [Validators.required,  Validators.minLength(3)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     });
   }
 
