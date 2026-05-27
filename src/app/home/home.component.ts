@@ -2,16 +2,18 @@ import { Component, OnInit } from "@angular/core";
 import { MultiplyPipe } from "../services/multiplication.pipes";
 import { CustomDirective } from "../services/custom.directive";
 import { AuthService } from "../services/auth.service";
+import { TruncatePipe } from "../services/truncate.pipe";
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.component.html',
     styleUrl: 'home.component.css',
-    imports: [MultiplyPipe, CustomDirective]
+    imports: [MultiplyPipe, CustomDirective, TruncatePipe]
 })
 
 export class HomeComponent implements OnInit {
     count = 4;
+    titleText = 'This is custom pipe truncate example';
     constructor(private authService: AuthService) {}
 
     ngOnInit(): void {
