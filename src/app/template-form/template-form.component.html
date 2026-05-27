@@ -2,7 +2,7 @@
 
 <div>
     <form #userForm="ngForm" (ngSubmit)="submitUserForm(userForm)">
-        <p><input type="text" [(ngModel)]="firstName" #firstNameVar="ngModel" name="firstName" required minlength="3"><br />
+        <p><input #firstNameInput type="text" [(ngModel)]="firstName" #firstNameVar="ngModel" name="firstName" required minlength="3"><br />
             @if (firstNameVar.touched && firstNameVar.invalid && firstNameVar.hasError('required')) {
             <span class="text-danger">First Name is required</span>
             }

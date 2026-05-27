@@ -3,6 +3,7 @@ import { AddressComponent } from '../address/address.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { SignalService } from '../services/signal.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,7 +16,8 @@ export class ContactComponent implements OnInit {
   userData: any;
   userName!: string;
   productData: any;
-  constructor(private authService: AuthService, private route: ActivatedRoute) {}
+  userSignalData:any
+  constructor(private authService: AuthService, private route: ActivatedRoute, private signalService: SignalService) {}
 
   ngOnInit(): void {
     this.addressDetails = {
@@ -27,6 +29,8 @@ export class ContactComponent implements OnInit {
     this.authService.productDataSub$.subscribe(pData => {
       this.productData = pData;
     })
+
+    this.userSignalData = this.signalService.getSignalValue();
   }
 
   addressEventData(event: any) {

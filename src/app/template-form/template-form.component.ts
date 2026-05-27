@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 @Component({
@@ -8,10 +8,19 @@ import { FormsModule } from "@angular/forms";
     imports: [FormsModule]
 })
 
-export class TemplateFormComponent {
+export class TemplateFormComponent implements OnInit, AfterViewInit {
+  @ViewChild('firstNameInput') fistNameInput!: ElementRef;
   firstName!: string;
   lastName!: string;
     constructor() {}
+
+    ngOnInit(): void {
+      
+    }
+
+    ngAfterViewInit(): void {
+      this.fistNameInput?.nativeElement?.focus();
+    }
 
      submitUserForm(userData: any) {
     console.log('user data', userData.value);
