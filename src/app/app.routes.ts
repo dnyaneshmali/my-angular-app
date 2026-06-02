@@ -6,6 +6,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ToDoListComponent } from './todo-list/todo-list.component';
 import { ToDoResolver } from './services/todo-list.resolver';
 import { AuthGuard } from './services/auth.guard';
+import { CenterDivComponent } from './center-div/center-div.component';
+import { DebounceComponent } from './debounce/debounce.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +32,14 @@ export const routes: Routes = [
     path: 'todo-list',
     component: ToDoListComponent,
     resolve: [ToDoResolver]
+  },
+  {
+    path: 'div-center',
+    component: CenterDivComponent
+  },
+  {
+    path: 'debounce',
+    component: DebounceComponent
   },
   {
     path: '',

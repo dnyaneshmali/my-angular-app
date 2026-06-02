@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, signal } from "@angular/core";
 import { MultiplyPipe } from "../services/multiplication.pipes";
 import { CustomDirective } from "../services/custom.directive";
 import { AuthService } from "../services/auth.service";
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     count = 4;
     titleText = 'This is custom pipe truncate example';
     userSignalData!:any;
+    //testCount = signal(1);
     constructor(private authService: AuthService, private signalService: SignalService) {}
 
     ngOnInit(): void {
@@ -28,6 +29,11 @@ export class HomeComponent implements OnInit {
         this.signalService.setSignalValue(userObj);
 
         this.userSignalData = this.signalService.getSignalValue();
+
+        // setInterval(() => {
+        // this.testCount.set(this.testCount() + 1);
+        // console.log('res', this.testCount());
+        // }, 1000)
     }
 
     setProductData() {
